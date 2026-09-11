@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raihan Islam - Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .display { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white relative min-h-screen flex flex-col justify-between">
+
+  <div>
+    <nav class="bg-gray-900 border-b border-gray-700 p-4 sticky top-0 z-40">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">Raihan Islam</h1>
+
+        <ul class="hidden md:flex gap-6 items-center">
+          <li><a href="#about" class="hover:text-pink-400 transition">About</a></li>
+          <li><a href="#skills" class="hover:text-pink-400 transition">Skills</a></li>
+          <li><a href="#projects" class="hover:text-pink-400 transition">Projects</a></li>
+          <li><a href="#contact" class="hover:text-pink-400 transition">Contact</a></li>
+          <li>
+            <button onclick="openEditModal()" class="bg-pink-500/20 text-pink-400 border border-pink-500/40 hover:bg-pink-500/30 px-3 py-1 rounded text-sm transition font-medium">
+              ⚡ Edit Portfolio
+            </button>
+          </li>
+        </ul>
+
+        <button onclick="toggleMenu()" aria-label="Toggle menu" class="md:hidden text-white focus:outline-none">
+          Menu
+        </button>
+      </div>
+
+      <ul id="mobile-menu" class="hidden flex-col gap-3 mt-4 md:hidden max-w-5xl mx-auto px-4 pb-2">
+        <li><a href="#about" onclick="toggleMenu()" class="hover:text-pink-400">About</a></li>
+        <li><a href="#skills" onclick="toggleMenu()" class="hover:text-pink-400">Skills</a></li>
+        <li><a href="#projects" onclick="toggleMenu()" class="hover:text-pink-400">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()" class="hover:text-pink-400">Contact</a></li>
+        <li>
+          <button onclick="toggleMenu(); openEditModal()" class="text-left w-full text-pink-400 font-medium py-1">
+            ⚡ Edit Portfolio
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <header class="text-center py-20 px-4">
+      <div class="flex justify-center items-center">
+        <img src="Profile.jpeg" alt="Raihan Islam" class="w-40 h-40 object-cover rounded-full border-2 border-pink-500/40 shadow-lg">
+      </div>
+      <h2 class="text-4xl md:text-6xl font-bold mb-4 mt-6">
+        Hi, I'm Raihan👋
+      </h2>
+      <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+        I'm a full-stack developer who loves building websites and apps.
+        This is my portfolio!
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#projects" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg transition">
+          See my work
+        </a>
+        <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition">
+          Contact me
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="max-w-3xl mx-auto px-4 py-16 border-t border-gray-800">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">About</h3>
+        <p class="text-gray-300 leading-relaxed">
+          I'm a Computer Science student focused on software engineering and full-stack development. I learn by building — turning new concepts into working applications rather than stopping at theory.
+        </p>
+        <p class="text-gray-300 leading-relaxed mt-4">
+          My current focus is modern web development with React and Node.js, alongside a solid grounding in C++ and core programming fundamentals. My long-term goal is to grow into a highly skilled software engineer through real-world projects and continuous learning.
+        </p>
+      </section>
+
+      <section id="skills" class="max-w-3xl mx-auto px-4 py-16 border-t border-gray-800">
+        <h3 class="text-2xl md:text-3xl font-bold mb-8">Skills</h3>
+        <div id="skills-display" class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        </div>
+      </section>
+
+      <section id="projects" class="max-w-3xl mx-auto px-4 py-16 border-t border-gray-800">
+        <h3 class="text-2xl md:text-3xl font-bold mb-8">Projects</h3>
+        <div id="projects-display" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </div>
+      </section>
+
+      <section id="contact" class="max-w-3xl mx-auto px-4 py-16 border-t border-gray-800 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold mb-4">Contact</h3>
+        <p class="text-gray-300 mb-8">Open to opportunities, collaborations, or just a conversation. Feel free to reach out.</p>
+        <div id="contact-display" class="flex justify-center flex-wrap gap-4">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-800">
+    &copy; <span id="year"></span> Raihan Islam · 
+    <button onclick="openEditModal()" class="text-gray-400 underline hover:text-pink-400">Owner Edit</button>
+  </footer>
+
+  <div id="edit-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-gray-800 border border-gray-700 rounded-xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800/90">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <span>🔒</span> Portfolio Editor
+        </h3>
+        <button onclick="closeEditModal()" class="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+      </div>
+
+      <div id="pin-view" class="p-8 text-center space-y-4">
+        <p class="text-gray-300">Please enter your Owner PIN to make changes.</p>
+        <input type="password" id="pin-input" placeholder="Enter PIN (Default: 1234)" 
+               class="bg-gray-900 border border-gray-700 rounded px-4 py-2 text-center text-lg text-white w-64 mx-auto block focus:border-pink-500 focus:outline-none">
+        <p id="pin-error" class="text-red-400 text-sm hidden">Invalid PIN! Try again.</p>
+        <button onclick="verifyPin()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-8 rounded-lg transition">
+          Verify
+        </button>
+      </div>
+
+      <div id="editor-view" class="hidden flex-1 overflow-y-auto p-6 space-y-8">
+        
+        <div class="bg-gray-900/60 p-4 border border-gray-700 rounded-lg space-y-4">
+          <h4 class="text-pink-400 font-bold uppercase text-sm">Edit Contact Information</h4>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Email</label>
+            <input type="email" id="edit-email" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white focus:outline-none focus:border-pink-500">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">GitHub URL</label>
+            <input type="url" id="edit-github" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white focus:outline-none focus:border-pink-500">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">LinkedIn URL</label>
+            <input type="url" id="edit-linkedin" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white focus:outline-none focus:border-pink-500">
+          </div>
+        </div>
+
+        <div class="bg-gray-900/60 p-4 border border-gray-700 rounded-lg space-y-4">
+          <h4 class="text-pink-400 font-bold uppercase text-sm">Edit Skills (Comma-separated)</h4>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Languages</label>
+            <input type="text" id="edit-skills-languages" placeholder="C++, JavaScript, Java" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Web</label>
+            <input type="text" id="edit-skills-web" placeholder="HTML / CSS, React, Node.js" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Tools</label>
+            <input type="text" id="edit-skills-tools" placeholder="PostgreSQL, Git, Linux" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white">
+          </div>
+        </div>
+
+        <div class="bg-gray-900/60 p-4 border border-gray-700 rounded-lg space-y-4">
+          <div class="flex justify-between items-center">
+            <h4 class="text-pink-400 font-bold uppercase text-sm">Edit Projects</h4>
+            <button onclick="addProjectField()" class="text-xs bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white">+ Add Project</button>
+          </div>
+          <div id="projects-editor-list" class="space-y-4">
+          </div>
+        </div>
+
+        <div class="bg-gray-900/60 p-4 border border-gray-700 rounded-lg space-y-2">
+          <h4 class="text-pink-400 font-bold uppercase text-sm">Security</h4>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Change Owner PIN</label>
+            <input type="password" id="edit-pin" placeholder="Enter new PIN" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm text-white">
+          </div>
+        </div>
+
+      </div>
+
+      <div id="editor-footer" class="hidden p-4 border-t border-gray-700 bg-gray-800 flex justify-between items-center">
+        <button onclick="resetDefaultData()" class="text-xs text-red-400 hover:underline">Reset to Default</button>
+        <div class="flex gap-3">
+          <button onclick="closeEditModal()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded text-sm font-medium">Cancel</button>
+          <button onclick="savePortfolioData()" class="px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded text-sm font-bold">Save Changes</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const defaultData = {
+      pin: "1234",
+      contact: {
+        email: "iraihan705@gmail.com",
+        github: "https://github.com/Raihans-code",
+        linkedin: "https://www.linkedin.com/in/iraihan705/"
+      },
+      skills: {
+        languages: ["C++", "JavaScript", "Java"],
+        web: ["HTML / CSS", "React", "Node.js / Express"],
+        tools: ["PostgreSQL / Prisma", "Git / GitHub", "Linux"]
+      },
+      projects: [
+        {
+          title: "Personal Portfolio",
+          description: "Full-stack portfolio with built-in owner editor and local storage data persistence.",
+          tech: "React · Tailwind CSS · Node.js"
+        },
+        {
+          title: "Algorithm Visualizer",
+          description: "An interactive application built to visualize sorting and pathfinding algorithms.",
+          tech: "C++ · Data Structures"
+        }
+      ]
+    };
+
+    let portfolioData = {};
+
+    function loadData() {
+      const saved = localStorage.getItem('raihan_portfolio_data');
+      if (saved) {
+        try {
+          portfolioData = JSON.parse(saved);
+        } catch (e) {
+          portfolioData = defaultData;
+        }
+      } else {
+        portfolioData = defaultData;
+      }
+      renderUI();
+    }
+
+    function renderUI() {
+      const skillsContainer = document.getElementById('skills-display');
+      skillsContainer.innerHTML = `
+        <div>
+          <h4 class="text-sm uppercase tracking-wide text-pink-400 mb-3">Languages</h4>
+          <ul class="mono text-sm text-gray-300 space-y-2">
+            ${portfolioData.skills.languages.map(s => `<li>${s.trim()}</li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm uppercase tracking-wide text-pink-400 mb-3">Web</h4>
+          <ul class="mono text-sm text-gray-300 space-y-2">
+            ${portfolioData.skills.web.map(s => `<li>${s.trim()}</li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm uppercase tracking-wide text-pink-400 mb-3">Tools</h4>
+          <ul class="mono text-sm text-gray-300 space-y-2">
+            ${portfolioData.skills.tools.map(s => `<li>${s.trim()}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      const projectsContainer = document.getElementById('projects-display');
+      if (portfolioData.projects.length === 0) {
+        projectsContainer.innerHTML = `<p class="text-gray-500 text-sm">No projects added yet.</p>`;
+      } else {
+        projectsContainer.innerHTML = portfolioData.projects.map(p => `
+          <div class="bg-gray-800/60 border border-gray-700 rounded-lg p-6 hover:border-pink-500/50 transition">
+            <h4 class="font-bold text-lg mb-2">${p.title}</h4>
+            <p class="text-gray-400 text-sm mb-4">${p.description}</p>
+            <p class="mono text-xs text-pink-400">${p.tech}</p>
+          </div>
+        `).join('');
+      }
+
+      const contactContainer = document.getElementById('contact-display');
+      contactContainer.innerHTML = `
+        <a href="mailto:${portfolioData.contact.email}" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 py-2 px-5 rounded-lg text-sm transition">${portfolioData.contact.email}</a>
+        <a href="${portfolioData.contact.github}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 py-2 px-5 rounded-lg text-sm transition">GitHub</a>
+        <a href="${portfolioData.contact.linkedin}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 py-2 px-5 rounded-lg text-sm transition">LinkedIn</a>
+      `;
+    }
+
+    function openEditModal() {
+      document.getElementById('edit-modal').classList.remove('hidden');
+      document.getElementById('pin-view').classList.remove('hidden');
+      document.getElementById('editor-view').classList.add('hidden');
+      document.getElementById('editor-footer').classList.add('hidden');
+      document.getElementById('pin-input').value = '';
+      document.getElementById('pin-error').classList.add('hidden');
+    }
+
+    function closeEditModal() {
+      document.getElementById('edit-modal').classList.add('hidden');
+    }
+
+    function verifyPin() {
+      const inputPin = document.getElementById('pin-input').value;
+      if (inputPin === portfolioData.pin) {
+        document.getElementById('pin-view').classList.add('hidden');
+        document.getElementById('editor-view').classList.remove('hidden');
+        document.getElementById('editor-footer').classList.remove('hidden');
+        populateEditorFields();
+      } else {
+        document.getElementById('pin-error').classList.remove('hidden');
+      }
+    }
+
+    function populateEditorFields() {
+      document.getElementById('edit-email').value = portfolioData.contact.email;
+      document.getElementById('edit-github').value = portfolioData.contact.github;
+      document.getElementById('edit-linkedin').value = portfolioData.contact.linkedin;
+
+      document.getElementById('edit-skills-languages').value = portfolioData.skills.languages.join(', ');
+      document.getElementById('edit-skills-web').value = portfolioData.skills.web.join(', ');
+      document.getElementById('edit-skills-tools').value = portfolioData.skills.tools.join(', ');
+
+      document.getElementById('edit-pin').value = portfolioData.pin;
+
+      renderProjectInputs();
+    }
+
+    function renderProjectInputs() {
+      const container = document.getElementById('projects-editor-list');
+      container.innerHTML = '';
+      portfolioData.projects.forEach((proj, idx) => {
+        const div = document.createElement('div');
+        div.className = 'border border-gray-700 p-3 rounded bg-gray-800 relative space-y-2';
+        div.innerHTML = `
+          <button onclick="removeProjectField(${idx})" class="absolute top-2 right-2 text-red-400 hover:text-red-300 text-xs font-bold">Remove</button>
+          <input type="text" placeholder="Project Title" value="${proj.title}" class="proj-title w-full bg-gray-900 border border-gray-700 rounded p-1.5 text-xs text-white">
+          <textarea placeholder="Description" class="proj-desc w-full bg-gray-900 border border-gray-700 rounded p-1.5 text-xs text-white">${proj.description}</textarea>
+          <input type="text" placeholder="Tech Stack (e.g. React · Node.js)" value="${proj.tech}" class="proj-tech w-full bg-gray-900 border border-gray-700 rounded p-1.5 text-xs text-pink-400 mono">
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addProjectField() {
+      portfolioData.projects.push({ title: "", description: "", tech: "" });
+      renderProjectInputs();
+    }
+
+    function removeProjectField(index) {
+      portfolioData.projects.splice(index, 1);
+      renderProjectInputs();
+    }
+
+    function savePortfolioData() {
+      portfolioData.contact.email = document.getElementById('edit-email').value;
+      portfolioData.contact.github = document.getElementById('edit-github').value;
+      portfolioData.contact.linkedin = document.getElementById('edit-linkedin').value;
+
+      portfolioData.skills.languages = document.getElementById('edit-skills-languages').value.split(',').map(s => s.trim()).filter(s => s);
+      portfolioData.skills.web = document.getElementById('edit-skills-web').value.split(',').map(s => s.trim()).filter(s => s);
+      portfolioData.skills.tools = document.getElementById('edit-skills-tools').value.split(',').map(s => s.trim()).filter(s => s);
+
+      const newPin = document.getElementById('edit-pin').value;
+      if (newPin) portfolioData.pin = newPin;
+
+      const projTitles = document.querySelectorAll('.proj-title');
+      const projDescs = document.querySelectorAll('.proj-desc');
+      const projTechs = document.querySelectorAll('.proj-tech');
+
+      const updatedProjects = [];
+      projTitles.forEach((el, idx) => {
+        if (el.value.trim() !== '') {
+          updatedProjects.push({
+            title: el.value,
+            description: projDescs[idx].value,
+            tech: projTechs[idx].value
+          });
+        }
+      });
+      portfolioData.projects = updatedProjects;
+
+      localStorage.setItem('raihan_portfolio_data', JSON.stringify(portfolioData));
+
+      renderUI();
+      closeEditModal();
+      alert('Portfolio updated successfully!');
+    }
+
+    function resetDefaultData() {
+      if (confirm("Are you sure you want to reset all portfolio data to default?")) {
+        localStorage.removeItem('raihan_portfolio_data');
+        portfolioData = defaultData;
+        renderUI();
+        closeEditModal();
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    loadData();
+  </script>
+</body>
+
+</html>
