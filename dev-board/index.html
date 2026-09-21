@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBoard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: "DM Sans", system-ui, sans-serif; }
+    </style>
+</head>
+
+<body id="bg-color" class="bg-slate-50 text-slate-900">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+
+        <header class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <img class="w-8 h-8" src="Pictures/DevBoardLogo.png" alt="DevBoard logo">
+                <h1 class="text-lg font-bold">DevBoard</h1>
+            </div>
+            <nav class="flex items-center gap-4 text-sm">
+                <a href="blogs.html" class="hover:underline">Blogs</a>
+                <span class="flex items-center gap-1" title="Tasks completed">
+                    <i class="fa-solid fa-check"></i>
+                    <span id="total-task">23</span>
+                </span>
+                <button id="bg-btn" aria-label="Change background" class="w-8 h-8 rounded-full overflow-hidden cursor-pointer">
+                    <img class="w-full h-full object-cover" src="Pictures/ColorChange.png" alt="">
+                </button>
+            </nav>
+        </header>
+
+        <section class="grid gap-4 sm:grid-cols-3 mt-6 bg-white border border-slate-200 rounded p-4">
+            <div>
+                <p class="text-sm text-slate-500">Tasks assigned</p>
+                <p id="task-count" class="text-3xl font-bold">06</p>
+            </div>
+            <a href="blogs.html" class="flex items-center gap-3 hover:underline">
+                <img class="w-10 h-10" src="Pictures/Dincover.png" alt="">
+                <span class="text-sm font-medium">Discover something new today</span>
+            </a>
+            <div class="flex items-center gap-3">
+                <img class="w-8 h-8" src="Pictures/Calender.png" alt="Calendar">
+                <div id="date"></div>
+            </div>
+        </section>
+
+        <main class="flex flex-col lg:flex-row items-start gap-6 mt-6">
+
+            <section class="w-full lg:flex-1 min-w-0 grid gap-4 sm:grid-cols-2">
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">Bloom Cafe</p>
+                    <h3 class="mt-1 font-bold">Build Menu Page</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">Create a responsive menu page with categories, prices and photos. Use a grid that shows one column on phones and three on desktop.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">12 October 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">QuickCart</p>
+                    <h3 class="mt-1 font-bold">Fix Cart Total Bug</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">The cart total does not update when an item is removed. Recalculate the total after every add and remove.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">15 October 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">Tune Box</p>
+                    <h3 class="mt-1 font-bold">Add Dark Mode Toggle 🌙</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">Add a toggle in the navbar that switches between light and dark themes. Save the choice so it stays after a refresh.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">20 October 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">Learn Hub</p>
+                    <h3 class="mt-1 font-bold">Create Quiz Timer</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">Add a 30-second countdown to each quiz question. Move to the next question automatically when the time runs out.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">25 October 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">Fit Track</p>
+                    <h3 class="mt-1 font-bold">Validate Signup Form</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">Check that the email is valid and the password has at least 8 characters. Show a clear error message under each field.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">01 November 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+                <article class="task-card flex flex-col bg-white border border-slate-200 rounded p-4">
+                    <p class="text-sm text-slate-500">Travel Buddy</p>
+                    <h3 class="mt-1 font-bold">Speed Up Image Loading</h3>
+                    <p class="flex-1 mt-2 text-sm text-slate-600">Photos on the destinations page load slowly. Compress the images and lazy-load the ones below the fold.</p>
+                    <div class="mt-4 flex items-center justify-between gap-3">
+                        <p class="text-sm text-slate-500">10 November 2026</p>
+                        <button class="task-btn bg-slate-900 text-white text-sm rounded px-4 py-2 cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-default">Completed</button>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="w-full lg:w-64 shrink-0 bg-white border border-slate-200 rounded p-4">
+                <div class="flex items-center justify-between gap-2">
+                    <h2 class="font-bold">Activity log</h2>
+                    <button id="clearActivity" class="text-sm text-slate-500 hover:underline cursor-pointer">Clear</button>
+                </div>
+                <div id="activity" class="flex flex-col gap-3 mt-4"></div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

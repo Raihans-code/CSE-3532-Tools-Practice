@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBoard Blogs</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: "DM Sans", system-ui, sans-serif; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+    <div class="max-w-2xl mx-auto px-4 py-6">
+
+        <header class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <img class="w-8 h-8" src="Pictures/DevBoardLogo.png" alt="DevBoard logo">
+                <h1 class="text-lg font-bold">DevBoard</h1>
+            </div>
+            <a href="index.html" class="text-sm hover:underline">Back to board</a>
+        </header>
+
+        <main>
+            <h2 class="text-2xl font-bold mt-8 mb-2">Blogs</h2>
+            <article class="py-4 border-b border-slate-200">
+                <h3 class="font-bold">1. What is the difference between var, let, and const?</h3>
+                <p class="mt-1 text-slate-600 break-words">var is function-scoped and can be redeclared. let and const are block-scoped. let can be reassigned, while const cannot be reassigned after it is created.</p>
+            </article>
+            <article class="py-4 border-b border-slate-200">
+                <h3 class="font-bold">2. What is the difference between == and === in JavaScript?</h3>
+                <p class="mt-1 text-slate-600 break-words">== compares values after converting them to the same type, so 5 == "5" is true. === compares both value and type, so 5 === "5" is false. Using === is safer because it avoids surprising conversions.</p>
+            </article>
+            <article class="py-4 border-b border-slate-200">
+                <h3 class="font-bold">3. What does addEventListener do, and why use it instead of onclick?</h3>
+                <p class="mt-1 text-slate-600 break-words">addEventListener attaches a function that runs when an event such as a click happens. Unlike onclick, you can add several listeners to the same element for the same event, and you can remove them later with removeEventListener.</p>
+            </article>
+            <article class="py-4 border-b border-slate-200">
+                <h3 class="font-bold">4. What is the difference between forEach and map?</h3>
+                <p class="mt-1 text-slate-600 break-words">forEach loops over an array and runs a function on each item, but it returns nothing. map also loops over every item, but it returns a new array made from the results of the function.</p>
+            </article>
+            <article class="py-4 border-b border-slate-200">
+                <h3 class="font-bold">5. What are template literals and how do you use them?</h3>
+                <p class="mt-1 text-slate-600 break-words">Template literals are strings written with backticks that can hold variables and expressions inside ${ }. Example: <code class="bg-slate-100 rounded px-1 text-sm">const name = 'Ada'; console.log(`Hello, ${name}!`);</code></p>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
